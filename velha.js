@@ -1,12 +1,40 @@
 let jogo = [];
 let tabuleiro = [];
 let qmJoga = 0; //1=jogador -1=cpu
-let jogando = true;
+let jogando = false;
 let jogadas = 0;
 let nivel = 1;
 let jogadaCPU = 1;
 let quemComeca = 1
 
+function iniciar(){
+    document.getElementById("btIniciar").setAttribute('disabled', 'true')
+    document.getElementById("resultado").innerHTML = ''
+    jogando = true;
+    jogadaCPU = 1;
+    nivel = document.querySelector('input[name="Dificuldade"]:checked').value;
+    jogadas = 0;
+    jogo = [[0,0,0],
+            [0,0,0],
+            [0,0,0]];
+    tabuleiro = [
+        [document.getElementById("p1"), document.getElementById("p2"), document.getElementById("p3")],
+        [document.getElementById("p4"), document.getElementById("p5"), document.getElementById("p6")],
+        [document.getElementById("p7"), document.getElementById("p8"), document.getElementById("p9")]
+    ]
+    atualizaTabuleiro()
+
+    if (quemComeca == 1){
+        document.getElementById("quemComeca").innerHTML = "Quem Começa: Jogador";
+        qmJoga = quemComeca
+        quemComeca = -1;    
+    } else{
+        document.getElementById("quemComeca").innerHTML = "Quem Começa: CPU";
+        qmJoga = quemComeca
+        quemComeca = 1;
+        cpuJogar()
+    }
+}
 
 function jogar(p){
     let linha = parseInt((p-1)/3)
@@ -38,13 +66,13 @@ function cpuJogar(){
 }
 
 function nivel1(){
-    if(quemComeca == -1 && jogadaCPU<5) {
+    if(quemComeca == -1 && jogadaCPU < 5) {
         do{
             linha = Math.round(Math.random()*2)
             coluna = Math.round(Math.random()*2)
         } while(jogo[linha][coluna] != 0);
     }
-    else if(quemComeca == 1 && jogadaCPU<6){
+    else if(quemComeca == 1 && jogadaCPU < 6){
         do{
             linha = Math.round(Math.random()*2)
             coluna = Math.round(Math.random()*2)
@@ -197,13 +225,15 @@ function atualizarDados(){
 function verificaFim(){
     let vitoria = verificaVitoria()
     if (vitoria == 1){
-        alert("Parabéns, você venceu!")
+        document.getElementById("resultado").innerHTML = "Parabéns, você venceu!";
+        document.getElementById("pontosJogador").value++
         jogando = false
     } else if(vitoria == -1){
-        alert("Que pena, você perdeu!")
+        document.getElementById("resultado").innerHTML = "Que pena, você perdeu!";
+        document.getElementById("pontosCPU").value++
         jogando = false
     } else if(jogadas == 9){
-        alert("EMPATE!")
+        document.getElementById("resultado").innerHTML = "EMPATE!";
         jogando = false
     }
 
@@ -253,31 +283,8 @@ function atualizaTabuleiro(){
     }
 }
 
-function iniciar(){
-    jogando = true;
-    jogadaCPU = 1;
-    nivel = document.getElementById("dificuldade").value;
-    jogadas = 0;
-    jogo = [[0,0,0],
-            [0,0,0],
-            [0,0,0]];
-    tabuleiro = [
-        [document.getElementById("p1"), document.getElementById("p2"), document.getElementById("p3")],
-        [document.getElementById("p4"), document.getElementById("p5"), document.getElementById("p6")],
-        [document.getElementById("p7"), document.getElementById("p8"), document.getElementById("p9")]
-    ]
-    atualizaTabuleiro()
 
-    if (quemComeca == 1){
-        document.getElementById("quemComeca").innerHTML = "Quem Começa: Jogador";
-        qmJoga = quemComeca
-        quemComeca = -1;    
-    } else{
-        document.getElementById("quemComeca").innerHTML = "Quem Começa: CPU";
-        qmJoga = quemComeca
-        quemComeca = 1;
-        cpuJogar()
-    }
+function zerarPlacar(){
+    document.getElementById("pontosJogador").value = 0;
+    document.getElementById("pontosCPU").value = 0;
 }
-
-window.addEventListener('load', iniciar);

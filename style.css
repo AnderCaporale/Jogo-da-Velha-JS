@@ -1,3 +1,34 @@
+#principal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 200px;
+    padding: 10px 10px;
+    border-radius: 20px;
+    margin: 25px;
+    background-color: rgb(240, 239, 239);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.274);
+    
+}
+
+.placar{
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.placar input{
+    width: 30px;
+    height: 30px;
+}
+
 
 #tabuleiro{
     width: 160px;
@@ -6,7 +37,7 @@
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 #p1{
@@ -56,4 +87,11 @@
     justify-content: center;
     align-items: center;
     font-size: 40px;
+}
+
+#resultado{
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
 }

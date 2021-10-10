@@ -9,26 +9,39 @@
     <script src="velha.js"></script>
 </head>
 <body>
-    
-    <div id="menu">
-        <p id="quemComeca"></p>
-        <label>Dificuldade: </label>
-        <input type="number" name="" id="dificuldade" max="2" min="1" value="1">
-    </div>
+    <section id="principal">
+        <section id="menu">
+            <section class="placar"> 
+                <p>Player</p> 
+                <input type="number" id="pontosJogador" value="0"disabled>
+                <p> X </p> 
+                <input type="number" id="pontosCPU" value="0" disabled>
+                <p>CPU</p> 
+            </section>
+            <p id="quemComeca"></p>
+            <label>Dificuldade: </label>
+            <input type="radio" name="Dificuldade" id="nivel1" value="1" checked>
+            <label>Fácil</label>
+            <input type="radio" name="Dificuldade" id="nivel2" value="2">
+            <label>Difícil</label>
+        </section>
 
-    <div id="tabuleiro">
-        <div id="p1" class="posJogo" onclick="jogar(1)"></div>
-        <div id="p2" class="posJogo" onclick="jogar(2)"></div>
-        <div id="p3" class="posJogo" onclick="jogar(3)"></div>
-        <div id="p4" class="posJogo" onclick="jogar(4)"></div>
-        <div id="p5" class="posJogo" onclick="jogar(5)"></div>
-        <div id="p6" class="posJogo" onclick="jogar(6)"></div>
-        <div id="p7" class="posJogo" onclick="jogar(7)"></div>
-        <div id="p8" class="posJogo" onclick="jogar(8)"></div>
-        <div id="p9" class="posJogo" onclick="jogar(9)"></div>
-    </div>
-
-    <input type="button" value="Reiniciar Jogo" onclick="iniciar()">
-
+        <input type="button" value="Iniciar Jogo" onclick="iniciar()" id="btIniciar">
+        
+        <section id="tabuleiro">
+            <div id="p1" class="posJogo" onclick="jogar(1)"></div>
+            <div id="p2" class="posJogo" onclick="jogar(2)"></div>
+            <div id="p3" class="posJogo" onclick="jogar(3)"></div>
+            <div id="p4" class="posJogo" onclick="jogar(4)"></div>
+            <div id="p5" class="posJogo" onclick="jogar(5)"></div>
+            <div id="p6" class="posJogo" onclick="jogar(6)"></div>
+            <div id="p7" class="posJogo" onclick="jogar(7)"></div>
+            <div id="p8" class="posJogo" onclick="jogar(8)"></div>
+            <div id="p9" class="posJogo" onclick="jogar(9)"></div>
+        </section>
+        <p id="resultado"></p>
+        <input type="button" value="Reiniciar Jogo" onclick="iniciar()">
+        <input type="button" value="Zerar Placar" onclick="zerarPlacar()">
+    </section>
 </body>
 </html>
