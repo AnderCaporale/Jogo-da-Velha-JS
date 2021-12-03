@@ -29,6 +29,9 @@
     height: 30px;
 }
 
+#dificuldade{
+    display: flex;
+}
 
 #tabuleiro{
     width: 160px;
@@ -94,4 +97,8 @@
     font-size: 30px;
     font-weight: bold;
     margin: 0 0 20px 0;
+}
+
+input[type='button']{
+    margin-bottom: 20px;
 }

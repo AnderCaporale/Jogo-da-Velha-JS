@@ -18,12 +18,15 @@
                 <input type="number" id="pontosCPU" value="0" disabled>
                 <p>CPU</p> 
             </section>
-            <p id="quemComeca"></p>
-            <label>Dificuldade: </label>
-            <input type="radio" name="Dificuldade" id="nivel1" value="1" checked>
-            <label>Fácil</label>
-            <input type="radio" name="Dificuldade" id="nivel2" value="2">
-            <label>Difícil</label>
+            
+                <p id="quemComeca"></p>
+            <div id="dificuldade">
+                <label>Dificuldade: </label>
+                <input type="radio" name="Dificuldade" id="nivel1" value="1" checked>
+                <label>Fácil</label>
+                <input type="radio" name="Dificuldade" id="nivel2" value="2">
+                <label>Difícil</label>
+            </div>
         </section>
 
         <input type="button" value="Iniciar Jogo" onclick="iniciar()" id="btIniciar">
